@@ -61,6 +61,8 @@ public class ReportActivity extends AppCompatActivity {
         locationText = findViewById(R.id.locationText);
         Button getLocationButton = findViewById(R.id.getLocationButton);
         Button submitButton = findViewById(R.id.submitButton);
+        Button backButton = findViewById(R.id.backButton);
+        backButton.setOnClickListener(v -> finish());
 
         // Fill the dropdown with our categories
         ArrayAdapter<String> adapter = new ArrayAdapter<>(
@@ -72,6 +74,12 @@ public class ReportActivity extends AppCompatActivity {
 
         // "Submit" → validate and save
         submitButton.setOnClickListener(v -> submitItem());
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish(); // close this screen, return to the feed
+        return true;
     }
 
     // ---------- LOCATION ----------

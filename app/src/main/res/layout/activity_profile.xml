@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F7FA">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <Button
+            android:id="@+id/backButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="← Back"
+            android:textColor="#2B6CB0"
+            android:backgroundTint="#FFFFFF"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Profile header -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="My Profile"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="#1A202C" />
+        <TextView
+            android:id="@+id/profileEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="signed in as..."
+            android:textColor="#718096"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Items I found -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Items I found"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#1A202C"
+            android:layout_marginBottom="8dp" />
+        <TextView
+            android:id="@+id/foundEmpty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="You haven't reported any items."
+            android:textColor="#718096"
+            android:visibility="gone"
+            android:layout_marginBottom="8dp" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/foundRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Items I claimed -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Items I claimed"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#1A202C"
+            android:layout_marginBottom="8dp" />
+        <TextView
+            android:id="@+id/claimedEmpty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="You haven't claimed any items."
+            android:textColor="#718096"
+            android:visibility="gone"
+            android:layout_marginBottom="8dp" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/claimedRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Sign out -->
+        <Button
+            android:id="@+id/signOutButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Sign out"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#2B6CB0" />
+
+    </LinearLayout>
+</ScrollView>

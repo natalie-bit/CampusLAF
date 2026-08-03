@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F7FA">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <Button
+            android:id="@+id/backButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="← Back"
+            android:textColor="#2B6CB0"
+            android:backgroundTint="#FFFFFF"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Item image -->
+        <ImageView
+            android:id="@+id/detailImage"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:background="#E2E8F0"
+            android:src="@android:drawable/ic_menu_report_image"
+            android:contentDescription="Item photo"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Title -->
+        <TextView
+            android:id="@+id/detailTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Item title"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="#1A202C" />
+
+        <!-- Status badge -->
+        <TextView
+            android:id="@+id/detailStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="found"
+            android:textColor="#2B6CB0"
+            android:textStyle="bold"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Description -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Description"
+            android:textColor="#4A5568"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/detailDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="..."
+            android:textColor="#4A5568"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Category -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Category"
+            android:textColor="#4A5568"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/detailCategory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="..."
+            android:textColor="#4A5568"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Location -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Location"
+            android:textColor="#4A5568"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/detailLocation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="..."
+            android:textColor="#4A5568"
+            android:layout_marginBottom="24dp" />
+
+        <!-- ===== CLAIMANT SECTION (shown if you are NOT the finder) ===== -->
+        <Button
+            android:id="@+id/claimButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="This is mine — claim it"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#2B6CB0"
+            android:visibility="gone" />
+
+        <!-- ===== FINDER SECTION (shown if you ARE the finder) ===== -->
+        <LinearLayout
+            android:id="@+id/finderSection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Claims on this item"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#1A202C"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:id="@+id/noClaimsMessage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="No claims yet."
+                android:textColor="#718096"
+                android:visibility="gone" />
+
+            <!-- The claims will be added here, one block per claim -->
+            <LinearLayout
+                android:id="@+id/claimsContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

@@ -57,4 +57,47 @@ public class ItemRepository {
                 .addOnSuccessListener(documentReference -> callback.onSuccess())
                 .addOnFailureListener(e -> callback.onError(e));
     }
+
+    // ---------- ITEMS I FOUND ----------
+
+    // Loads all items posted by a specific user (any status).
+    public void loadItemsIFound(String uid, final ItemsCallback callback) {
+        db.collection(ITEMS_COLLECTION)
+                .whereEqualTo("finderId", uid)
+                .get()
+                .addOnSuccessListener(querySnapshot -> {
+                    List<Item> items = new ArrayList<>();
+                    for (QueryDocumentSnapshot doc : querySnapshot) {
+                        Item item = doc.toObject(Item.class);
+                        item.setItemId(doc.getId());
+                        items.add(item);
+                    }
+                    callback.onItemsLoaded(items);
+                })
+                .addOnFailureListener(callback::onError);
+    }
+
+    // ---------- ITEMS BY THEIR IDs ----------
+
+    // Loads a set of items given a list of their IDs (used for "items I claimed").
+    public void loadItemsByIds(List<String> itemIds, final ItemsCallback callback) {
+        List<Item> results = new ArrayList<>();
+        if (itemIds.isEmpty()) {
+            callback.onItemsLoaded(results);
+            return;
+        }
+        // Firestore "in" queries handle up to 10 IDs at a time — fine for this project.
+        db.collection(ITEMS_COLLECTION)
+                .whereIn(com.google.firebase.firestore.FieldPath.documentId(), itemIds)
+                .get()
+                .addOnSuccessListener(querySnapshot -> {
+                    for (QueryDocumentSnapshot doc : querySnapshot) {
+                        Item item = doc.toObject(Item.class);
+                        item.setItemId(doc.getId());
+                        results.add(item);
+                    }
+                    callback.onItemsLoaded(results);
+                })
+                .addOnFailureListener(callback::onError);
+    }
 }

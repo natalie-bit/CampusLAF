@@ -45,13 +45,19 @@ public class FeedActivity extends AppCompatActivity {
         emptyMessage = findViewById(R.id.emptyMessage);
         Button signOutButton = findViewById(R.id.signOutButton);
         Button addButton = findViewById(R.id.addButton);
+        Button profileButton = findViewById(R.id.profileButton);
+        profileButton.setOnClickListener(v -> {
+            Intent intent = new Intent(FeedActivity.this, ProfileActivity.class);
+            startActivity(intent);
+        });
 
         // Set up the RecyclerView: a vertical list, using our adapter
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new ItemAdapter(items, item -> {
-            // For now, just show which item was tapped.
-            // Later this opens the Item Detail page.
-            Toast.makeText(this, "Tapped: " + item.getTitle(), Toast.LENGTH_SHORT).show();
+            // Open the detail page, passing the item's ID
+            Intent intent = new Intent(FeedActivity.this, ItemDetailActivity.class);
+            intent.putExtra("itemId", item.getItemId());
+            startActivity(intent);
         });
         recyclerView.setAdapter(adapter);
 

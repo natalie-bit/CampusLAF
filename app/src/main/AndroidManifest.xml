@@ -27,6 +27,8 @@
 
         <activity android:name=".FeedActivity" />
         <activity android:name=".ReportActivity" />
+        <activity android:name=".ItemDetailActivity" />
+        <activity android:name=".ProfileActivity" />
 
     </application>
 
