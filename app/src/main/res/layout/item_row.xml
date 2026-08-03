@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="12dp"
+    android:gravity="center_vertical"
+    android:background="#FFFFFF">
+
+    <!-- Thumbnail image on the left -->
+    <ImageView
+        android:id="@+id/itemImage"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:scaleType="centerCrop"
+        android:background="#E2E8F0"
+        android:src="@android:drawable/ic_menu_report_image"
+        android:contentDescription="Item photo" />
+
+    <!-- Text column on the right -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_marginStart="12dp">
+
+        <TextView
+            android:id="@+id/itemTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Item title"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#1A202C" />
+
+        <TextView
+            android:id="@+id/itemLocation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Location"
+            android:textSize="14sp"
+            android:textColor="#718096"
+            android:layout_marginTop="2dp" />
+
+        <TextView
+            android:id="@+id/itemTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Time"
+            android:textSize="12sp"
+            android:textColor="#A0AEC0"
+            android:layout_marginTop="2dp" />
+
+    </LinearLayout>
+
+</LinearLayout>
