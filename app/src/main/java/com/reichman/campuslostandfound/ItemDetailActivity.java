@@ -33,6 +33,7 @@ public class ItemDetailActivity extends AppCompatActivity {
     // The item we're showing
     private Item currentItem;
     private String itemId;
+    private com.google.firebase.analytics.FirebaseAnalytics mAnalytics;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +41,7 @@ public class ItemDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_item_detail);
 
         mAuth = FirebaseAuth.getInstance();
+        mAnalytics = com.google.firebase.analytics.FirebaseAnalytics.getInstance(this);
         db = FirebaseFirestore.getInstance();
         claimRepository = new ClaimRepository();
 
@@ -162,6 +164,7 @@ public class ItemDetailActivity extends AppCompatActivity {
                 Toast.makeText(ItemDetailActivity.this,
                         "Claim submitted! The finder will review it.", Toast.LENGTH_LONG).show();
                 claimButton.setVisibility(View.GONE);
+                mAnalytics.logEvent("claim_submitted", new android.os.Bundle());
             }
             @Override
             public void onError(Exception e) {
@@ -252,6 +255,7 @@ public class ItemDetailActivity extends AppCompatActivity {
                 Toast.makeText(ItemDetailActivity.this,
                         "Claim approved! Item marked as claimed.", Toast.LENGTH_SHORT).show();
                 loadItem(); // reload to refresh everything
+                mAnalytics.logEvent("claim_approved", new android.os.Bundle());
             }
             @Override
             public void onError(Exception e) {

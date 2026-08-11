@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.google.services)
+    alias(libs.plugins.firebase.crashlytics)
 }
 
 android {
@@ -49,4 +50,5 @@ dependencies {
     implementation libs.play.services.auth
     implementation libs.glide
     implementation libs.play.services.location
+    implementation libs.firebase.crashlytics.lib
 }

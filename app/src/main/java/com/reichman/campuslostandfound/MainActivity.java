@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText emailInput;
     private EditText passwordInput;
     private UserRepository userRepository;
+    private com.google.firebase.analytics.FirebaseAnalytics mAnalytics;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Connect to Firebase Authentication
         mAuth = FirebaseAuth.getInstance();
+        mAnalytics = com.google.firebase.analytics.FirebaseAnalytics.getInstance(this);
         userRepository = new UserRepository();
 
         // Configure Google Sign-In:
@@ -189,6 +191,10 @@ public class MainActivity extends AppCompatActivity {
 
     // Move to the Feed screen and close the login screen
     private void goToFeed() {
+        // Log a login event
+        android.os.Bundle loginBundle = new android.os.Bundle();
+        loginBundle.putString("method", "app_login");
+        mAnalytics.logEvent("user_login", loginBundle);
         // Save this user to Firestore (only creates a doc if they're new)
         FirebaseUser firebaseUser = mAuth.getCurrentUser();
         if (firebaseUser != null) {

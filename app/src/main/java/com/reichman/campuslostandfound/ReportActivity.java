@@ -44,6 +44,7 @@ public class ReportActivity extends AppCompatActivity {
     // The captured location, stored until submit. Null until the user gets it.
     private Double capturedLat = null;
     private Double capturedLng = null;
+    private com.google.firebase.analytics.FirebaseAnalytics mAnalytics;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +52,7 @@ public class ReportActivity extends AppCompatActivity {
         setContentView(R.layout.activity_report);
 
         mAuth = FirebaseAuth.getInstance();
+        mAnalytics = com.google.firebase.analytics.FirebaseAnalytics.getInstance(this);
         itemRepository = new ItemRepository();
         locationClient = LocationServices.getFusedLocationProviderClient(this);
 
@@ -183,6 +185,9 @@ public class ReportActivity extends AppCompatActivity {
         itemRepository.createItem(item, new ItemRepository.CreateCallback() {
             @Override
             public void onSuccess() {
+                android.os.Bundle reportBundle = new android.os.Bundle();
+                reportBundle.putString("category", item.getCategory());
+                mAnalytics.logEvent("item_reported", reportBundle);
                 Toast.makeText(ReportActivity.this, "Item reported!", Toast.LENGTH_SHORT).show();
                 finish(); // close this screen, back to the feed
             }
