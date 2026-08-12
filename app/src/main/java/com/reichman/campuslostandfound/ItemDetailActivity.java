@@ -5,6 +5,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,6 +26,7 @@ public class ItemDetailActivity extends AppCompatActivity {
     private ClaimRepository claimRepository;
 
     // Views
+    private ImageView detailImage;
     private TextView detailTitle, detailStatus, detailDescription, detailCategory, detailLocation;
     private Button claimButton;
     private LinearLayout finderSection, claimsContainer;
@@ -46,6 +48,7 @@ public class ItemDetailActivity extends AppCompatActivity {
         claimRepository = new ClaimRepository();
 
         // Find views
+        detailImage = findViewById(R.id.detailImage);
         detailTitle = findViewById(R.id.detailTitle);
         detailStatus = findViewById(R.id.detailStatus);
         detailDescription = findViewById(R.id.detailDescription);
@@ -96,6 +99,8 @@ public class ItemDetailActivity extends AppCompatActivity {
 
     // Fill the screen with the item's details, and decide which mode to show
     private void showItem() {
+        detailImage.setImageResource(
+                ItemImages.getImageResource(this, currentItem.getPhotoUrl()));
         detailTitle.setText(currentItem.getTitle());
         detailStatus.setText(currentItem.getStatus());
         detailDescription.setText(currentItem.getDescription());

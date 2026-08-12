@@ -71,14 +71,9 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
                 .format(new Date(item.getCreatedAt()));
         holder.itemTime.setText(timeText);
 
-        // Load the photo if there is one; otherwise keep the placeholder
-        if (item.getPhotoUrl() != null && !item.getPhotoUrl().isEmpty()) {
-            Glide.with(holder.itemImage.getContext())
-                    .load(item.getPhotoUrl())
-                    .into(holder.itemImage);
-        } else {
-            holder.itemImage.setImageResource(android.R.drawable.ic_menu_report_image);
-        }
+        // Show the item's bundled image, or a placeholder
+        holder.itemImage.setImageResource(
+                ItemImages.getImageResource(holder.itemImage.getContext(), item.getPhotoUrl()));
 
         // When this row is tapped, tell the Feed screen which item it was
         holder.itemView.setOnClickListener(v -> clickListener.onItemClick(item));
