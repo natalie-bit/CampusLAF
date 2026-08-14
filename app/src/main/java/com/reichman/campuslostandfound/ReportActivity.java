@@ -45,6 +45,7 @@ public class ReportActivity extends AppCompatActivity {
     private Double capturedLat = null;
     private Double capturedLng = null;
     private com.google.firebase.analytics.FirebaseAnalytics mAnalytics;
+    private EditText locationLabelInput;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +62,7 @@ public class ReportActivity extends AppCompatActivity {
         descriptionInput = findViewById(R.id.descriptionInput);
         categorySpinner = findViewById(R.id.categorySpinner);
         locationText = findViewById(R.id.locationText);
+        locationLabelInput = findViewById(R.id.locationLabelInput);
         Button getLocationButton = findViewById(R.id.getLocationButton);
         Button submitButton = findViewById(R.id.submitButton);
         Button backButton = findViewById(R.id.backButton);
@@ -165,6 +167,11 @@ public class ReportActivity extends AppCompatActivity {
             return;
         }
 
+        String typedLabel = locationLabelInput.getText().toString().trim();
+        if (typedLabel.isEmpty()) {
+            typedLabel = "Location recorded";
+        }
+
         // Build the item. photoUrl is empty (GPS-only version). status starts as "found".
         Item item = new Item(
                 null,                       // itemId — Firestore generates it
@@ -174,7 +181,7 @@ public class ReportActivity extends AppCompatActivity {
                 "",                         // photoUrl — none in this version
                 capturedLat,
                 capturedLng,
-                "Lat/Lng recorded",         // locationLabel
+                typedLabel,         // locationLabel
                 user.getUid(),              // finderId
                 "found",                    // status
                 null,                       // claimedBy

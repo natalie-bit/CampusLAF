@@ -5,7 +5,7 @@
     android:orientation="horizontal"
     android:padding="12dp"
     android:gravity="center_vertical"
-    android:background="#FFFFFF">
+    android:background="@color/card_white">
 
     <!-- Thumbnail image on the left -->
     <ImageView
@@ -13,7 +13,7 @@
         android:layout_width="64dp"
         android:layout_height="64dp"
         android:scaleType="centerCrop"
-        android:background="#E2E8F0"
+        android:background="@color/divider_grey"
         android:src="@android:drawable/ic_menu_report_image"
         android:contentDescription="Item photo" />
 
@@ -32,7 +32,7 @@
             android:text="Item title"
             android:textSize="16sp"
             android:textStyle="bold"
-            android:textColor="#1A202C" />
+            android:textColor="@color/text_dark" />
 
         <TextView
             android:id="@+id/itemLocation"
@@ -40,7 +40,7 @@
             android:layout_height="wrap_content"
             android:text="Location"
             android:textSize="14sp"
-            android:textColor="#718096"
+            android:textColor="@color/text_light"
             android:layout_marginTop="2dp" />
 
         <TextView
@@ -49,7 +49,7 @@
             android:layout_height="wrap_content"
             android:text="Time"
             android:textSize="12sp"
-            android:textColor="#A0AEC0"
+            android:textColor="@color/text_faint"
             android:layout_marginTop="2dp" />
 
     </LinearLayout>

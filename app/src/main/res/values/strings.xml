@@ -1,3 +1,45 @@
 <resources>
     <string name="app_name">Campus Lost and Found</string>
+    <!-- Login -->
+    <string name="tagline">Lost something on campus? Find it here.</string>
+    <string name="email_hint">Email</string>
+    <string name="password_hint">Password</string>
+    <string name="log_in">Log in</string>
+    <string name="create_account">New here? Create an account</string>
+    <string name="or_divider">— or —</string>
+    <string name="continue_google">Continue with Google</string>
+
+    <!-- Feed -->
+    <string name="found_items">Found Items</string>
+    <string name="sign_out">Sign out</string>
+    <string name="my_items">My Items</string>
+    <string name="report_item">+ Report Item</string>
+    <string name="no_items">No items found yet.</string>
+
+    <!-- Report -->
+    <string name="report_title">Report a Found Item</string>
+    <string name="what_found">What did you find?</string>
+    <string name="title_hint">e.g. Blue water bottle</string>
+    <string name="description_label">Description</string>
+    <string name="description_hint">Where exactly, any details...</string>
+    <string name="category_label">Category</string>
+    <string name="where_found">Where you found it</string>
+    <string name="location_not_set">Location not set</string>
+    <string name="use_location">Use my current location</string>
+    <string name="submit">Submit</string>
+
+    <!-- Detail -->
+    <string name="claim_it">This is mine — claim it</string>
+    <string name="claims_on_item">Claims on this item</string>
+    <string name="no_claims">No claims yet.</string>
+
+    <!-- Profile -->
+    <string name="my_profile">My Profile</string>
+    <string name="items_i_found">Items I found</string>
+    <string name="items_i_claimed">Items I claimed</string>
+    <string name="no_reported">You haven\'t reported any items.</string>
+    <string name="no_claimed">You haven\'t claimed any items.</string>
+
+    <!-- Common -->
+    <string name="back">← Back</string>
 </resources>

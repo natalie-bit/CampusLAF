@@ -2,7 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F5F7FA">
+    android:background="@color/background_grey">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,8 +15,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="← Back"
-            android:textColor="#2B6CB0"
-            android:backgroundTint="#FFFFFF"
+            android:textColor="@color/brand_blue"
+            android:backgroundTint="@color/card_white"
             android:layout_marginBottom="8dp" />
 
         <TextView
@@ -25,7 +25,7 @@
             android:text="Report a Found Item"
             android:textSize="24sp"
             android:textStyle="bold"
-            android:textColor="#1A202C"
+            android:textColor="@color/text_dark"
             android:layout_marginBottom="24dp" />
 
         <!-- Title -->
@@ -33,7 +33,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="What did you find?"
-            android:textColor="#4A5568"
+            android:textColor="@color/text_medium"
             android:layout_marginBottom="4dp" />
         <EditText
             android:id="@+id/titleInput"
@@ -49,7 +49,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Description"
-            android:textColor="#4A5568"
+            android:textColor="@color/text_medium"
             android:layout_marginBottom="4dp" />
         <EditText
             android:id="@+id/descriptionInput"
@@ -67,7 +67,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Category"
-            android:textColor="#4A5568"
+            android:textColor="@color/text_medium"
             android:layout_marginBottom="4dp" />
         <Spinner
             android:id="@+id/categorySpinner"
@@ -80,25 +80,33 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Where you found it"
-            android:textColor="#4A5568"
+            android:text="@string/where_found"
+            android:textColor="@color/text_medium"
             android:layout_marginBottom="4dp" />
+        <EditText
+            android:id="@+id/locationLabelInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Type a location (e.g. Library, 2nd floor)"
+            android:background="@android:drawable/edit_text"
+            android:padding="12dp"
+            android:layout_marginBottom="8dp" />
         <TextView
             android:id="@+id/locationText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Location not set"
-            android:textColor="#718096"
+            android:text="@string/location_not_set"
+            android:textColor="@color/text_light"
             android:padding="12dp"
-            android:background="#EDF2F7"
+            android:background="@color/input_grey"
             android:layout_marginBottom="8dp" />
         <Button
             android:id="@+id/getLocationButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Use my current location"
-            android:textColor="#2B6CB0"
-            android:backgroundTint="#FFFFFF"
+            android:text="@string/use_location"
+            android:textColor="@color/brand_blue"
+            android:backgroundTint="@color/card_white"
             android:layout_marginBottom="24dp" />
 
         <!-- Submit -->
@@ -107,8 +115,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Submit"
-            android:textColor="#FFFFFF"
-            android:backgroundTint="#2B6CB0" />
+            android:textColor="@color/card_white"
+            android:backgroundTint="@color/brand_blue" />
 
     </LinearLayout>
 </ScrollView>
