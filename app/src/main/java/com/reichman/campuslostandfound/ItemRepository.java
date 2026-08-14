@@ -1,7 +1,5 @@
 package com.reichman.campuslostandfound;
 
-import androidx.annotation.NonNull;
-
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;

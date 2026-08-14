@@ -1,17 +1,22 @@
 package com.reichman.campuslostandfound;
 
-// Represents one claim on an item, in the "claims" collection in Firestore.
+/**
+ * Represents one claim on an item, stored in the "claims" collection in Firestore.
+ * A claim moves through a small state machine: pending -> approved, or pending -> rejected.
+ * finderId is duplicated here (it also lives on the item) so the finder can query all
+ * claims addressed to them directly, without first fetching every item they posted.
+ */
 public class Claim {
 
     private String claimId;
     private String itemId;
     private String claimantId;   // who is claiming the item
     private String finderId;     // who found it (duplicated here so the finder can query easily)
-    private String proofText;    // "it has a blue keychain"
+    private String proofText;    // e.g. "it has a blue keychain"
     private String status;       // "pending", "approved", or "rejected"
     private long createdAt;
 
-    // Firestore REQUIRES an empty constructor
+    // Firestore requires an empty constructor to rebuild objects when reading documents
     public Claim() { }
 
     public Claim(String claimId, String itemId, String claimantId, String finderId,
